@@ -1,3 +1,4 @@
+language: generic
 sudo: required
 services:
   - docker
@@ -6,4 +7,4 @@ before_install:
   - docker build -t dmirlin/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run dmirlin/docker-react yarn run test -- --coverage
+  - docker run -e CI=true dmirlin/docker-react yarn run test
